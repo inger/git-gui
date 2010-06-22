@@ -264,6 +264,9 @@ proc merge_resolve_tool2 {} {
 		error_popup [mc "Not a GUI merge tool: '%s'" $tool]
 		return
 	}
+	adapt-mergetool {
+	    set cmdline [list "$merge_tool_path" "$LOCAL" "$REMOTE" "$BASE" "$MERGED" ]
+        }
 	default {
 		error_popup [mc "Unsupported merge tool '%s'" $tool]
 		return
